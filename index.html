@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация | STANDOFF2UZB_GOLDSHOP</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 🌈 RGB рамка страницы */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -5px; left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border-radius: 10px;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet, red);
+      background-size: 600% 600%;
+      z-index: -1;
+      animation: rgbBorder 12s linear infinite;
+    }
+    @keyframes rgbBorder {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* 🌈 Контейнер регистрации */
+    .rgb-reg-box {
+      position: relative;
+      background: rgba(10, 10, 10, 0.9);
+      border-radius: 20px;
+      padding: 45px 40px;
+      text-align: center;
+      width: 420px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.3);
+      animation: fadeIn 1s ease-out;
+    }
+    .rgb-reg-box::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      border-radius: 22px;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet, red);
+      background-size: 600% 600%;
+      animation: rgbBorder 8s linear infinite;
+      z-index: -1;
+      filter: blur(5px);
+    }
+
+    .rgb-title {
+      color: #fff;
+      margin-bottom: 25px;
+      text-shadow: 0 0 20px #0ff;
+      font-size: 26px;
+    }
+
+    /* 🌈 Инпуты */
+    .rgb-input {
+      width: 90%;
+      padding: 14px;
+      margin: 12px 0;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+      transition: 0.3s;
+    }
+    .rgb-input:focus {
+      box-shadow: 0 0 25px rgba(0,255,255,0.9);
+      background: #000;
+    }
+
+    /* 🌈 Кнопка */
+    .rgb-button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      background: linear-gradient(270deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 600% 600%;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-shadow: 0 0 10px #000;
+      transition: 0.3s;
+      animation: rgbBorder 8s linear infinite;
+    }
+    .rgb-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255,255,255,1);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="rgb-reg-box">
+    <h2 class="rgb-title">Регистрация<br>STANDOFF2UZB_GOLDSHOP</h2>
+    <input type="text" class="rgb-input" id="rgb-nick" placeholder="Никнейм" maxlength="20" />
+    <input type="password" class="rgb-input" id="rgb-pass" placeholder="Пароль" maxlength="20" />
+    <input type="email" class="rgb-input" id="rgb-email" placeholder="Email" />
+    <input type="date" class="rgb-input" id="rgb-date" />
+    <button class="rgb-button" onclick="rgbRegister()">Создать аккаунт</button>
+  </div>
+
+
+  <script>
+    function rgbRegister() {
+      const nick = document.getElementById('rgb-nick').value.trim();
+      const pass = document.getElementById('rgb-pass').value.trim();
+      const email = document.getElementById('rgb-email').value.trim();
+      const date = document.getElementById('rgb-date').value;
+
+      if(nick.length < 3){ alert("Ник минимум 3 символа!"); return; }
+      if(pass.length < 4){ alert("Пароль минимум 4 символа!"); return; }
+      if(!email.includes("@")){ alert("Введите корректный email!"); return; }
+      if(!date){ alert("Выберите дату рождения!"); return; }
+
+      localStorage.setItem('username', nick);
+      localStorage.setItem('userData', JSON.stringify({nick,email,date}));
+
+      alert("Регистрация успешна!");
+      window.location.href = "shop.html";
+    }
+  </script>
+</body>
+</html>

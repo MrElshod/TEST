@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STANDOFF2UZB_GOLDSHOP | Магазин</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+    * {box-sizing: border-box;}
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #000;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* 🌈 RGB рамка по периметру */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -5px; left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border-radius: 10px;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet, red);
+      background-size: 600% 600%;
+      z-index: -1;
+      animation: rgbBorder 12s linear infinite;
+    }
+
+    @keyframes rgbBorder {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    main { padding: 20px; }
+
+    h1,h2,h3 { text-align: center; }
+
+    /* 🌈 Категории */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .category-card {
+      background: #111;
+      border-radius: 15px;
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid transparent;
+      animation: rgbCard 6s linear infinite;
+    }
+
+    @keyframes rgbCard {
+      0% { border-color: red; }
+      20% { border-color: orange; }
+      40% { border-color: yellow; }
+      60% { border-color: cyan; }
+      80% { border-color: blue; }
+      100% { border-color: violet; }
+    }
+
+    .category-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255,255,255,0.3);
+    }
+
+    .category-card img { width: 80px; }
+
+    /* 🌈 Разделитель для приложений */
+    .apps-divider {
+      position: relative;
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+    .apps-line {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 600% 600%;
+      animation: rgbBorder 6s linear infinite;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+    .apps-title {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      padding: 0 15px;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
+    }
+
+    /* 🌈 Товары */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #111;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      border: 2px solid transparent;
+      animation: rgbCard 6s linear infinite;
+    }
+    .product img {width: 80px;}
+    .product button {
+      margin-top: 8px;
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(270deg, red, orange, yellow, lime, cyan, blue, violet);
+      background-size: 600% 600%;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: rgbBorder 8s linear infinite;
+    }
+    .product button:hover {transform: scale(1.05);}
+     .yt-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff0000;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(255,0,0,0.6);
+    transition: 0.3s;
+    z-index: 1000;
+  }
+  .yt-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,0,0,0.9);
+  }
+  </style>
+</head>
+<body>
+  <main>
+    <h1> STANDOFF2UZB_GOLDSHOP </h1>
+    <h2>Выберите игру</h2>
+    <div class="categories">
+      <div class="category-card">
+        <img src="i (8).webp" alt="Standoff2"/>
+        <h3>Standoff 2</h3>
+      </div>
+      <div class="category-card">
+        <img src="i (9).webp" alt="Roblox"/>
+        <h3>Roblox</h3>
+      </div>
+      <div class="category-card">
+        <img src="i (10).webp" alt="Brawl Stars"/>
+        <h3>Brawl Stars</h3>
+      </div>
+      <div class="category-card">
+        <img src="i (11).webp" alt="PUBG"/>
+        <h3>PUBG Mobile</h3>
+      </div>
+    </div>
+
+    <!-- 🌈 Раздел приложений -->
+    <div class="apps-divider">
+      <div class="apps-line"></div>
+      <span class="apps-title">Приложения</span>
+    </div>
+    <div class="categories">
+      <div class="category-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"/>
+        <h3>Telegram</h3>
+      </div>
+    </div>
+    <!-- Плавающая кнопка YouTube -->
+<a href="https://www.youtube.com/channel/UCary9DaOIHbivsKZL5fOKqg" target="_blank" class="yt-button">
+  <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" 
+       alt="YouTube" width="28" height="28">
+  ТехноRUSH
+</a>
+  </main>
+</body>
+</html>
